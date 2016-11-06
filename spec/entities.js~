@@ -36,7 +36,7 @@ describe('Entities library', function () {
     mockery.deregisterMock('./dice');
   });
 
-  it('includes types for characters, items, weapons and effects.', function () {
+  xit('includes types for characters, items, weapons and effects.', function () {
     expect(Character).toEqual(jasmine.any(Function));
     expect(Item).toEqual(jasmine.any(Function));
     expect(Weapon).toEqual(jasmine.any(Function));
@@ -57,7 +57,7 @@ describe('Entities library', function () {
 
   });
 
-  xdescribe('Character type', function () {
+  describe('Character type', function () {
     var features = {
       initiative: 15,
       defense: 55,
@@ -242,7 +242,7 @@ describe('Entities library', function () {
 
   });
 
-  describe('Scroll type', function () {
+  xdescribe('Scroll type', function () {
 
     it('is a subtype of Item', function () {
       expect(Scroll.prototype).toEqual(jasmine.any(Item));
@@ -263,7 +263,7 @@ describe('Entities library', function () {
 
   });
 
-  describe('Built-in entities', function () {
+  xdescribe('Built-in entities', function () {
 
     it('includes characters and weapons.', function () {
       expect(entities.characters).toEqual(jasmine.any(Object));

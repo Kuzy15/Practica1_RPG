@@ -44,7 +44,7 @@ describe('Entities library', function () {
     expect(Effect).toEqual(jasmine.any(Function));
   });
 
-  describe('Effect type', function () {
+  xdescribe('Effect type', function () {
 
     it('allows specify arbitrary feature alterations.', function () {
       var effect = new Effect({
@@ -57,7 +57,7 @@ describe('Entities library', function () {
 
   });
 
-  xdescribe('Character type', function () {
+  describe('Character type', function () {
     var features = {
       initiative: 15,
       defense: 55,
@@ -210,7 +210,7 @@ describe('Entities library', function () {
 
   });
 
-  describe('Item type', function () {
+  xdescribe('Item type', function () {
 
     it('allows to create generic items', function () {
       var item = new Item('testItem', new Effect({ hp: 5 }));
