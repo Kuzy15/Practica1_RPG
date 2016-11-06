@@ -9,9 +9,9 @@ function Item(name, effect) {
 
 
 function Weapon(name, damage, extraEffect) {
-   Item.call(this,name,extraEffect);
-   extraEffect = extraEffect || new Effect({});
-   this.damage = damage;	
+   this.extraEffect = extraEffect || new Effect({});	
+   this.extraEffect.hp = -damage;
+   Item.apply(this, [name, this.extraEffect]); 
    //Haz que Weapon sea subtipo de Item haciendo que llame al constructor de
    //de Item.
 }
@@ -32,8 +32,8 @@ Scroll.prototype.constructor = Scroll;
 Scroll.prototype.canBeUsed = function (mp) {
   //El pergamino puede usarse si los puntos de maná son superiores o iguales
   //al coste del hechizo.
-  if(mp >= Scroll.cost) return true;
-  else{return false;}
+  return(mp >= this.cost);
+  
 };
 
 function Effect(variations) {

@@ -57,7 +57,7 @@ describe('Entities library', function () {
 
   });
 
-  describe('Character type', function () {
+  xdescribe('Character type', function () {
     var features = {
       initiative: 15,
       defense: 55,

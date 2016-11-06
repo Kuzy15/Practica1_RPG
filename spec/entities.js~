@@ -57,7 +57,7 @@ describe('Entities library', function () {
 
   });
 
-  describe('Character type', function () {
+  xdescribe('Character type', function () {
     var features = {
       initiative: 15,
       defense: 55,
@@ -242,7 +242,7 @@ describe('Entities library', function () {
 
   });
 
-  xdescribe('Scroll type', function () {
+  describe('Scroll type', function () {
 
     it('is a subtype of Item', function () {
       expect(Scroll.prototype).toEqual(jasmine.any(Item));
