@@ -11,9 +11,26 @@ TurnList.prototype.reset = function (charactersById) {
 };
 
 TurnList.prototype.next = function () {
-  // Haz que calcule el siguiente turno y devuelva el resultado
-  // según la especificación. Recuerda que debe saltar los personajes
-  // muertos.
+
+	for(var elem in this.list){//[c,b,a]
+		
+		if(!this._charactersById[elem]._isDead){
+			this.activeCharacterId = this.list[elem];
+			//this.turnNumber=;
+		}		
+	}
+
+	var turn;
+	turn.number = this.turnNumber;
+	//turn.party = ;
+	turn.activeCharacterId = this.activeCharacterId;
+  
+	
+	
+	
+ // Haz que calcule el siguiente turno y devuelva el resultado
+ // según la especificación. Recuerda que debe saltar los personajes
+ // muertos.
 };
 
 TurnList.prototype._sortByInitiative = function () {
