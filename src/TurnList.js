@@ -11,18 +11,38 @@ TurnList.prototype.reset = function (charactersById) {
 };
 
 TurnList.prototype.next = function () {
-
-	for(var elem in this.list){//[c,b,a]
+         
+	var boool = false;
+	var i = 0;
+	/*for(var elem in this.list){//[c,b,a]
 		
 		if(!this._charactersById[elem]._isDead){
 			this.activeCharacterId = this.list[elem];
-			//this.turnNumber=;
+			
 		}		
+	}*/
+	while(!boool && i < this.list.length){
+
+		if(!this._charactersById[this.list[i]].isDead()){
+
+			this.activeCharacterId =this. _charactersById[this.list[i]];
+			this.turnNumber++;
+			boool = true;
+		}
+
+		i++;
+	
+
 	}
 
-	var turn;
+
+	
+
+	var turn = {};
+
+/*	turn = {number: this.turnNumber, party: this. _charactersById[this.list[i]].party, activeCharacterId: this.activeCharacterId };*/
 	turn.number = this.turnNumber;
-	//turn.party = ;
+	turn.party = this. _charactersById[this.list[i]].party;
 	turn.activeCharacterId = this.activeCharacterId;
   
 	
