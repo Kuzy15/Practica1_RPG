@@ -25,7 +25,7 @@ TurnList.prototype.next = function () {
 
 		if(!this._charactersById[this.list[i]].isDead()){
 
-			this.activeCharacterId =this. _charactersById[this.list[i]];
+			this.activeCharacterId =this.list[i];
 			this.turnNumber++;
 			boool = true;
 		}
@@ -42,11 +42,11 @@ TurnList.prototype.next = function () {
 
 /*	turn = {number: this.turnNumber, party: this. _charactersById[this.list[i]].party, activeCharacterId: this.activeCharacterId };*/
 	turn.number = this.turnNumber;
-	turn.party = this. _charactersById[this.list[i]].party;
+	turn.party = this. _charactersById[this.activeCharacterId].party;
 	turn.activeCharacterId = this.activeCharacterId;
   
 	
-	
+	return turn;
 	
  // Haz que calcule el siguiente turno y devuelva el resultado
  // según la especificación. Recuerda que debe saltar los personajes
