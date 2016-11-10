@@ -45,9 +45,9 @@ describe('CharactesView type', function () {
   });
 
   it('list all characters.', function () {
-    var heroTankView = charactersView.get('Tank');//=return this._views['Tank']
-    var heroWizardView = charactersView.get('Wizz');//=return this._views['Wizz']
-    expect(charactersView.all()//Devuelve un objeto copia de this._views)
+    var heroTankView = charactersView.get('Tank');
+    var heroWizardView = charactersView.get('Wizz');
+    expect(charactersView.all())
       .toEqual({
         Tank: heroTankView,
         Wizz: heroWizardView
