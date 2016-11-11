@@ -19,9 +19,13 @@ Options.prototype.get = function (id) {
 };
 
 Options.prototype.select = function (id) {
-
-	//if(id!= entrId)--->lanza error
-	//var reason = 'option-does-not-exits'
+	var opcion = this.get(id);
+	if (opcion === undefined){
+	       	this.emit('choseError', 'option-does-not-exist', id);
+	}
+	else {
+		this.emit ('chose', id, opcion);  
+	}
   // Haz que se emita un evento cuando seleccionamos una opción.
 };
 
