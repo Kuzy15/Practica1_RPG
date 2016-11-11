@@ -5,14 +5,14 @@ function CharactersView() {
 }
 
 CharactersView.prototype._visibleFeatures = [
-  'name',
+  'name',//0...
   'party',
   'initiative',
   'defense',
   'hp',
   'mp',
   'maxHp',
-  'maxMp'
+  'maxMp'//...7
 ];
 
 CharactersView.prototype.all = function () {
@@ -36,7 +36,7 @@ CharactersView.prototype.allFrom = function (party) {
   }.bind(this), {});	
 };
 
-CharactersView.prototype.get = function (id//'Tank'-->_views) {
+CharactersView.prototype.get = function (id/*'Tank'-->_views*/) {
   return this._views[id] || null;
 };
 
@@ -50,50 +50,52 @@ CharactersView.prototype.set = function (characters) {//{Tank y Wizz
 CharactersView.prototype._getViewFor = function (character) {
   var view = {};
   
-  for ( var caracteristica in this._visibleFeatures){
+ /* for ( var caracteristica in this._visibleFeatures){
 
 	  view.caracteristica = null;
   
   }
   
-  var arrIndex = Object.keys(view);
+  var arrIndex = Object.keys(view);*/
 
   // Usa la lista de características visibles y Object.defineProperty() para
   // devolver un objeto de JavaScript con las características visibles pero
   // no modificables.
   
-  for(var i = 0; i < arrIndex.lenght; i++ ){
+  //for(var i = 0; i < this._visibleFeatures.lenght; i++ ){
 	 
-	  (function(index){
+	  //(function(index){
+	this._visibleFeatures.forEach(function(feature){
 
-		  Object.defineProperty(view, view[Object.keys(view)[i]] , {
+		  Object.defineProperty(view, feature /*view[Object.keys(view)[i]]*/ , {
     
 		  get: function () {
 
-			  return view[Object.keys(view)[i]];
+			  return character[feature];/*character[Object.keys(character)[i]]*/;
 	    
-      // ¿Cómo sería este getter para reflejar la propiedad del personaje?
+      // ¿Cómo ser9ía este getter para reflejar la propiedad del personaje?
     
 		  },
     
-		  set: function (character[Object.keys(character)[i]]) {
+		  set: function (value) {
 
-			  view[Object.keys(view)[i]] = character[Object.keys(character)[i]];
-
-      // ¿Y este setter para ignorar cualquier acción?
-    
+                           value = null;
+			   return character[feature] + value/*character[Object.keys(character)[i]] + value - value*/;	 
+      
+			  // ¿Y este setter para ignorar cualquier acción?
 		  },
     
 		  enumerable: true
   
 	  
 		  });
-	  }(i));
+	});
+	  //}(i));
 		  
-  }
+  //}
   return view;
   // Acuérdate de devolver el objeto.
 
-}
+};
 
 module.exports = CharactersView;
