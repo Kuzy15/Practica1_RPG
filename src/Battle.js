@@ -116,7 +116,8 @@ Battle.prototype._extractCharactersById = function (parties) {
 Battle.prototype._resetStates = function (charactersById) {
   return Object.keys(charactersById).reduce(function (map, charId) {
     map[charId] = {};
-    return map;
+    return map;//Devuelve un array con la id de los personajes, que ahora son
+	  //un objeto vacio
   }, {});
 };
 
@@ -198,6 +199,13 @@ Battle.prototype._onAction = function (action) {
     action: action,
     activeCharacterId: this._turns.activeCharacterId
   };
+
+	if(this._action[action] === 'defend')
+		this._defend();
+	else if(this._action[action] === 'attack')
+		this._attack();
+	else{ //if(this._action[action] === cast)
+		this._cast();}
   // Debe llamar al método para la acción correspondiente:
   // defend -> _defend; attack -> _attack; cast -> _cast
 };
@@ -211,7 +219,16 @@ Battle.prototype._defend = function () {
 };
 
 Battle.prototype._improveDefense = function (targetId) {
-  var states = this._states[targetId];
+  var states = this._states[targetId];	//array con la id de los pjs, que
+	//son un objeto vacio
+	var activeCharacterId = this._action.activeCharacterId;
+	states[targetId].defense = Math.ceil(activeCharacterId.defense * 1.1);
+
+	return states[targetId].defense;
+	
+	
+
+
   // Implementa la mejora de la defensa del personaje.
 };
 
