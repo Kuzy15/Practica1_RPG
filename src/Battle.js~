@@ -221,8 +221,9 @@ Battle.prototype._defend = function () {
 Battle.prototype._improveDefense = function (targetId) {
   var states = this._states[targetId];	//array con la id de los pjs, que
 	//son un objeto vacio
-	var activeCharacterId = this._action.activeCharacterId;
-	states[targetId].defense = Math.ceil(activeCharacterId.defense * 1.1);
+	var character = this._charactersById[targetId];
+	//Û this._action.activeCharacterId;ø?
+	states[targetId].defense = Math.ceil(character.defense * 1.1);
 
 	return states[targetId].defense;
 	
@@ -233,6 +234,8 @@ Battle.prototype._improveDefense = function (targetId) {
 };
 
 Battle.prototype._restoreDefense = function (targetId) {
+
+	return this._charactersById[targetId].defense;
   // Restaura la defensa del personaje a c√≥mo estaba antes de mejorarla.
   // Puedes utilizar el atributo this._states[targetId] para llevar tracking
   // de las defensas originales.
