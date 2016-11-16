@@ -32,12 +32,12 @@ Character.prototype.applyEffect = function (effect, isAlly) {
 	if(isAlly){ 
 	  //for (var name in effect){
             //this[name] += effect[name];}
-	  this.initiative += effect.initiative;
-	  this.defense += effect.defense;
-	  this.hp += effect.hp;
-	  this.mp += effect.mp;
-	  this.maxHp += effect.maxHp;
-	  this.maxMp += effect.maxMp;
+	  this.initiative += effect.initiative || 0;
+	  this.defense += effect.defense || 0;
+	  this.hp += effect.hp || 0;
+	  this.mp += effect.mp || 0;
+	  this.maxHp += effect.maxHp || 0;
+	  this.maxMp += effect.maxMp || 0;
 	
 	 boool = true;
 	}
@@ -47,12 +47,12 @@ Character.prototype.applyEffect = function (effect, isAlly) {
 	 if(random >= this.defense){ 
 	   //for (var name in effect){
             //this[name] += effect[name];}
-	   this.initiative += effect.initiative;
-	   this.defense += effect.defense;
-	   this.hp += effect.hp;
-	   this.mp += effect.mp;
-	   this.maxHp += effect.maxHp;
-	   this.maxMp += effect.maxMp;
+	   this.initiative += effect.initiative || 0;
+	   this.defense += effect.defense || 0;
+	   this.hp += effect.hp || 0;
+	   this.mp += effect.mp || 0;
+	   this.maxHp += effect.maxHp || 0;
+	   this.maxMp += effect.maxMp || 0;
 	   boool = true;
 	 }
 	

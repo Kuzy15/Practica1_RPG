@@ -4,7 +4,7 @@ var EventEmitter = require('events').EventEmitter;
 
 function Options(group) {
   EventEmitter.call(this);
-  this._group = typeof group === 'object' ? group : {};//ø?ø?
+  this._group = typeof group === 'object' ? group : {};
 }
 Options.prototype = Object.create(EventEmitter.prototype);
 Options.prototype.constructor = Options;
@@ -19,13 +19,15 @@ Options.prototype.get = function (id) {
 };
 
 Options.prototype.select = function (id) {
-	var opcion = this.get(id);
+var opcion = this.get(id);
 	if (opcion === undefined){
 	       	this.emit('choseError', 'option-does-not-exist', id);
 	}
 	else {
 		this.emit ('chose', id, opcion);  
 	}
+
+
   // Haz que se emita un evento cuando seleccionamos una opci√≥n.
 };
 

@@ -266,7 +266,7 @@ describe('Battle type', function () {
       });
  //Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
 
-      xit('accumulates turn by turn.', function (done) {
+      it('accumulates turn by turn.', function (done) {
         var currentDefense = fastEnemy.defense;
         var expectedDefense =
             Math.ceil(Math.ceil(currentDefense * 1.1) * 1.1);
@@ -293,7 +293,7 @@ describe('Battle type', function () {
 
     xdescribe('Attack action', function () {
 
-      it('requires to choose a target character.', function (done) {
+      xit('requires to choose a target character.', function (done) {
         battle.on('turn', function () {
           this.options.select('attack');
           expect(this.options.list()).toEqual(jasmine.arrayContaining([
@@ -307,7 +307,7 @@ describe('Battle type', function () {
         battle.start();
       });
 
-      it('does not allow to choose a dead character.', function (done) {
+      xit('does not allow to choose a dead character.', function (done) {
         currentSetup.heroes.members[1].hp = 0;
         battle.setup(currentSetup);
 
@@ -324,7 +324,7 @@ describe('Battle type', function () {
         battle.start();
       });
 
-      it('applies weapon effect if defense roll fails.', function (done) {
+      xit('applies weapon effect if defense roll fails.', function (done) {
         fakeD100 = 100;
         var tankHealth = heroTank.hp;
         var clawsDamage = fastEnemy.weapon.effect.hp;
@@ -345,7 +345,7 @@ describe('Battle type', function () {
         battle.start();
       });
 
-      it('doesn\'t apply weapon effect if defense roll passes.',
+      xit('doesn\'t apply weapon effect if defense roll passes.',
        function (done) {
         fakeD100 = 1;
         var tankHealth = heroTank.hp;
@@ -366,7 +366,7 @@ describe('Battle type', function () {
         battle.start();
       });
 
-      it('always applies weapon effect if the attack comes from an ally.',
+      xit('always applies weapon effect if the attack comes from an ally.',
       function (done) {
         heroWizard.defense = 100;
         fakeD100 = 1;
@@ -393,7 +393,7 @@ describe('Battle type', function () {
         battle.start();
       });
 
-      it('informs after attacking an ally.', function (done) {
+      xit('informs after attacking an ally.', function (done) {
         battle.on('turn', function (turn) {
           if (turn.number === 2) {
             this.on('info', function (info) {
@@ -414,7 +414,7 @@ describe('Battle type', function () {
         battle.start();
       });
 
-      it('informs after attacking a foe passing the defense roll.',
+      xit('informs after attacking a foe passing the defense roll.',
       function (done) {
         fakeD100 = 100;
         battle.on('turn', function (turn) {
@@ -438,7 +438,7 @@ describe('Battle type', function () {
         battle.start();
       });
 
-      it('informs after attacking a foe failing the defense roll.',
+      xit('informs after attacking a foe failing the defense roll.',
       function (done) {
         fakeD100 = 1;
         battle.on('turn', function (turn) {
@@ -462,7 +462,7 @@ describe('Battle type', function () {
         battle.start();
       });
 
-      it('can be cancelled.', function (done) {
+      xit('can be cancelled.', function (done) {
         battle.on('turn', function () {
           this.options.select('attack');
           this.options.cancel();

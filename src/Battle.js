@@ -170,6 +170,7 @@ Battle.prototype._checkEndOfBattle = function () {
 	  while(boool && i < characters.length){
 
 		  if(characters[i-1].party === characters[i].party)
+			  
 			  partyAlives = characters[i-1].party;
 
 		  else
@@ -177,6 +178,7 @@ Battle.prototype._checkEndOfBattle = function () {
 			  boool = false;
 			  partyAlives = null;
 		  }
+		  
 		  i++;
 	  }
 	 
@@ -203,13 +205,17 @@ Battle.prototype._onAction = function (action) {
   };
 
 	if(this._action[action] === 'defend')
-		this._defend();
+		
+		this.emit(this._action, this._defend());
 
 	else if(this._action[action] === 'attack')
-		this._attack();
 
-	else{ //if(this._action[action] === cast)
-		this._cast();}
+		this.emit(this._action, this._attack());
+
+	else if(this._action[action] === 'cast')
+	{ 
+		this.emit(this._action, this._cast());
+	}
 
 	
 
@@ -225,7 +231,7 @@ Battle.prototype._defend = function () {
   this._executeAction();
 };
 
-Battle.prototype._improveDefense = function (targetId) {//No estoy seguro
+Battle.prototype._improveDefense = function (targetId) {
   var states = this._states[targetId];
 
 	states = this._charactersById[targetId].defense;
@@ -237,7 +243,7 @@ Battle.prototype._improveDefense = function (targetId) {//No estoy seguro
   // Implementa la mejora de la defensa del personaje.
 };
 
-Battle.prototype._restoreDefense = function (targetId) {//*
+Battle.prototype._restoreDefense = function (targetId) {
 
 	 this._charactersById[targetId].defense = states;
 
@@ -249,6 +255,7 @@ Battle.prototype._restoreDefense = function (targetId) {//*
 Battle.prototype._attack = function () {
   var self = this;
   self._showTargets(function onTarget(targetId) {
+
     // Implementa lo que pasa cuando se ha seleccionado el objetivo.
 	  //
 	  //Se escoge al target (targetId) que no puede estar muerto
