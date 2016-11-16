@@ -14,13 +14,7 @@ TurnList.prototype.next = function () {
          
 	var boool = false;
 	var i = 0;
-	/*for(var elem in this.list){//[c,b,a]
-		
-		if(!this._charactersById[elem]._isDead){
-			this.activeCharacterId = this.list[elem];
-			
-		}		
-	}*/
+
 	while(!boool && i < this.list.length){
 
 		if(!this._charactersById[this.list[i]].isDead()){
@@ -29,14 +23,9 @@ TurnList.prototype.next = function () {
 			this.turnNumber++;
 			boool = true;
 		}
-
+		
 		i++;
-	
-
 	}
-
-
-	
 
 	var turn = {};
 
@@ -44,8 +33,7 @@ TurnList.prototype.next = function () {
 	turn.number = this.turnNumber;
 	turn.party = this. _charactersById[this.activeCharacterId].party;
 	turn.activeCharacterId = this.activeCharacterId;
-  
-	
+
 	return turn;
 	
  // Haz que calcule el siguiente turno y devuelva el resultado

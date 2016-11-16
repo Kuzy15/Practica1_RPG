@@ -44,7 +44,7 @@ Character.prototype.applyEffect = function (effect, isAlly) {
 	else
 	{
 	 var random = dice.d100();
-	 if(random > this.defense){ 
+	 if(random >= this.defense){ 
 	   //for (var name in effect){
             //this[name] += effect[name];}
 	   this.initiative += effect.initiative;

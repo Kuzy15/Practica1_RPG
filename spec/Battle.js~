@@ -153,7 +153,7 @@ describe('Battle type', function () {
 
   });
 
-  xdescribe('Battle actions', function () {
+  describe('Battle actions', function () {
 
     it('are 3: attack, defend and cast.', function () {
       battle.on('turn', function () {
@@ -167,9 +167,10 @@ describe('Battle type', function () {
       battle.start();
     });
 
-    xdescribe('Defend action', function () {
+    describe('Defend action', function () {
+ //Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
 
-      xit('informs of the result.', function (done) {
+      it('informs of the result.', function (done) {
         var currentDefense = fastEnemy.defense;
         var expectedDefense = Math.ceil(currentDefense * 1.1);
 
@@ -188,8 +189,9 @@ describe('Battle type', function () {
 
         battle.start();
       });
+ //Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
 
-      xit('increases defense feature by 10%.', function (done) {
+      it('increases defense feature by 10%.', function (done) {
         var currentDefense = fastEnemy.defense;
         fakeD100 = currentDefense + 1;
         var expectedDefense = Math.ceil(currentDefense * 1.1);
@@ -262,6 +264,7 @@ describe('Battle type', function () {
 
         battle.start();
       });
+ //Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
 
       xit('accumulates turn by turn.', function (done) {
         var currentDefense = fastEnemy.defense;

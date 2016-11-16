@@ -36,11 +36,11 @@ CharactersView.prototype.allFrom = function (party) {
   }.bind(this), {});	
 };
 
-CharactersView.prototype.get = function (id/*'Tank'-->_views*/) {
+CharactersView.prototype.get = function (id) {
   return this._views[id] || null;
 };
 
-CharactersView.prototype.set = function (characters) {//{Tank y Wizz
+CharactersView.prototype.set = function (characters) {
   this._views = Object.keys(characters).reduce(function (views, id) {
     views[id] = this._getViewFor(characters[id]);
     return views;

@@ -28,23 +28,23 @@ Character.prototype.applyEffect = function (effect, isAlly) {
   // Implementa las reglas de aplicación de efecto para modificar las
   // características del personaje. Recuerda devolver true o false según
   // si el efecto se ha aplicado o no.
-	var boool = false;
+        var boool = false;
 	if(isAlly){ 
-	 //for (var name in effect){
+	  //for (var name in effect){
             //this[name] += effect[name];}
-	 this.initiative += effect.initiative;
-	 this.defense += effect.defense;
-	 this.hp += effect.hp;
-	 this.mp += effect.mp;
-	 this.maxHp += effect.maxHp;
-	 this.maxMp += effect.maxMp;
+	  this.initiative += effect.initiative;
+	  this.defense += effect.defense;
+	  this.hp += effect.hp;
+	  this.mp += effect.mp;
+	  this.maxHp += effect.maxHp;
+	  this.maxMp += effect.maxMp;
 	
 	 boool = true;
 	}
 	else
 	{
 	 var random = dice.d100();
-	 if(random > this.defense){ 
+	 if(random >= this.defense){ 
 	   //for (var name in effect){
             //this[name] += effect[name];}
 	   this.initiative += effect.initiative;
