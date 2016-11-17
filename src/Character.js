@@ -29,30 +29,36 @@ Character.prototype.applyEffect = function (effect, isAlly) {
   // características del personaje. Recuerda devolver true o false según
   // si el efecto se ha aplicado o no.
         var boool = false;
-	if(isAlly){ 
-	  //for (var name in effect){
-            //this[name] += effect[name];}
-	  this.initiative += effect.initiative || 0;
+	if(isAlly)
+	{ 
+	  
+		for (var name in effect)
+            
+			this[name] += effect[name];
+	  /*this.initiative += effect.initiative || 0;
 	  this.defense += effect.defense || 0;
 	  this.hp += effect.hp || 0;
 	  this.mp += effect.mp || 0;
 	  this.maxHp += effect.maxHp || 0;
-	  this.maxMp += effect.maxMp || 0;
+	  this.maxMp += effect.maxMp || 0;*/
 	
 	 boool = true;
 	}
+	
 	else
 	{
 	 var random = dice.d100();
 	 if(random >= this.defense){ 
-	   //for (var name in effect){
-            //this[name] += effect[name];}
-	   this.initiative += effect.initiative || 0;
+	   
+		 for (var name in effect)
+            
+			 this[name] += effect[name];
+	   /*this.initiative += effect.initiative || 0;
 	   this.defense += effect.defense || 0;
 	   this.hp += effect.hp || 0;
 	   this.mp += effect.mp || 0;
 	   this.maxHp += effect.maxHp || 0;
-	   this.maxMp += effect.maxMp || 0;
+	   this.maxMp += effect.maxMp || 0;*/
 	   boool = true;
 	 }
 	
@@ -100,3 +106,4 @@ Object.defineProperty(Character.prototype, 'defense', {
  
 
 module.exports = Character;
+

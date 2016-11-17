@@ -28,6 +28,8 @@ var opcion = this.get(id);
 	}
 
 
+
+
   // Haz que se emita un evento cuando seleccionamos una opción.
 };
 
