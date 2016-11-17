@@ -11,22 +11,27 @@ TurnList.prototype.reset = function (charactersById) {
 };
 
 TurnList.prototype.next = function () {
-    var t = this.turnNumber;
-  this.turnNumber++;
-  var isUsed = false;
-  while(!isUsed){
-    t = t % this.list.length;
-    if(!this._charactersById[this.list[t]].isDead()){
-      this.activeCharacterId = this.list[t];
-      isUsed = true;
-    }
-    t++;
-  }
-  var turn = {};
-  turn.number = this.turnNumber;
-  turn.party = this._charactersById[this.activeCharacterId].party;
-  turn.activeCharacterId = this.activeCharacterId;
-  return turn;
+    
+	var t = this.turnNumber;
+	this.turnNumber++;
+	var isUsed = false;
+	
+	while(!isUsed){
+		
+		t = t % this.list.length;
+		
+		if(!this._charactersById[this.list[t]].isDead()){
+			this.activeCharacterId = this.list[t];
+			isUsed = true;
+		}
+		t++;
+	}
+  
+	var turn = {};
+	turn.number = this.turnNumber;
+       	turn.party = this._charactersById[this.activeCharacterId].party;
+       	turn.activeCharacterId = this.activeCharacterId;
+       	return turn;
 	
  // Haz que calcule el siguiente turno y devuelva el resultado
  // según la especificación. Recuerda que debe saltar los personajes
@@ -34,8 +39,10 @@ TurnList.prototype.next = function () {
 };
 
 TurnList.prototype._sortByInitiative = function () {
+
 	var charactersArr = [];
-	for( var characters in this._charactersById)//Cada personaje en _charactersById
+	
+	for( var characters in this._charactersById)//Cada personaje en _charactersById	
 		charactersArr.push({name: characters,
 		initiative: this._charactersById[characters].initiative});
 	//lo mete en un array para despues ordenarlo
@@ -52,6 +59,7 @@ TurnList.prototype._sortByInitiative = function () {
 	});
 
 	var list = [];//Se usa para devolver el array de los objetos ordenados
+	
 	for( var character in charactersArr){
 	
 		list.push(charactersArr[character].name);

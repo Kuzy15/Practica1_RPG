@@ -240,8 +240,8 @@ Battle.prototype._improveDefense = function (targetId) {
 	if (!this._states[targetId].defense){
 		this._states[targetId].defense = this._charactersById[targetId].defense;
 	}
-	var defense = this._charactersById[targetId].defense;
 	
+	var defense = this._charactersById[targetId].defense;
 	defense = Math.ceil(defense * 1.1);
 
 	//console.log("---->", targetId);
@@ -288,7 +288,7 @@ Battle.prototype._cast = function () {
     var Character = self._action.activeCharacterId;
 	
     self._action.scrollName = scrollId;
-	self._action.targetId = targetId;
+    self._action.targetId = targetId;
     self._action.effect = scroll.effect;
     self._charactersById[Character].mp -= scroll.cost;
 	
@@ -321,29 +321,42 @@ Battle.prototype._showTargets = function (onSelection) {
   // Toma ejemplo de la función ._showActions() para mostrar los identificadores
   // de los objetivos.
   var targets = {};
-  for (var t in this._charactersById){
-    if(this._charactersById[t].hp > 0)
-      targets[t] = true;
-  }
-  this.options.current = targets;
+  
+	for (var t in this._charactersById){
+    
+		if(this._charactersById[t].hp > 0)
+      
+			targets[t] = true;
+  
+	}
+  
+	this.options.current = targets;
 
-  this.options.current.on('chose', onSelection);
+  
+	this.options.current.on('chose', onSelection);
 };
 
 Battle.prototype._showScrolls = function (onSelection) {
   // Toma ejemplo de la función anterior para mostrar los hechizos. Estudia
   // bien qué parámetros se envían a los listener del evento chose.
   
-  var Scrolls = {};
-  //Guardamos el bando del personaje.
-  var Bando = this._charactersById[this._action.activeCharacterId].party;
   
-  for (var s in this._grimoires[Bando]){
-	  if (this._charactersById[this._action.activeCharacterId].mp >= this._grimoires[Bando][s].cost){
+	var Scrolls = {};
+  //Guardamos el bando del personaje.
+ 
+       	var Bando = this._charactersById[this._action.activeCharacterId].party;
+  
+ 
+       	for (var s in this._grimoires[Bando]){
+	 
+	       	if (this._charactersById[this._action.activeCharacterId].mp >= this._grimoires[Bando][s].cost){
 		  
-		  Scrolls[s] = this._grimoires[Bando][s];
-	  }
-  }
+		 
+		       	Scrolls[s] = this._grimoires[Bando][s];
+	  
+		}
+  
+	}
   
   this.options.current = Scrolls;
   this.options.current.on('chose', onSelection);

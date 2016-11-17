@@ -1,5 +1,5 @@
 'use strict';
-//TERMINADO?
+
 
 function Item(name, effect) {
   this.name = name;
@@ -37,9 +37,12 @@ Scroll.prototype.canBeUsed = function (mp) {
 };
 
 function Effect(variations) {
-  for (var name in variations){
-    this[name] = variations[name];
-  }
+  
+	for (var name in variations){
+   
+	       	this[name] = variations[name];
+  
+	}
   
   /*this.initiative = variations.initiative;
   this.defense = variations.defense;
